@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Orb · embed demo</title>
+  <link rel="stylesheet" href="site/styles.css" />
+</head>
+<body>
+  <h1>The orb, on a page you own</h1>
+  <p class="lede">One script tag. It follows the primary button, becomes the caret when you type, and can be dragged, thrown, tucked and pinched. With no brain it cannot answer, and its face is sleepy when you open its panel.</p>
+  <form onsubmit="event.preventDefault(); OrbEmbed.orbSay('Saved. That is all it takes.')">
+    <input placeholder="Type here: the orb becomes the caret" aria-label="Try typing" style="min-width: 280px" />
+    <button class="btn" type="submit">Save</button>
+  </form>
+  <p>Build first: <code>npm run build</code>, then open this file. To give it a brain, see docs/08-brain.md.</p>
+  <script src="../dist/embed/orb.js"></script>
+  <script>
+    OrbEmbed.mountOrb({ brain: null, settings: { sound: true } });
+  </script>
+</body>
+</html>

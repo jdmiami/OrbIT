@@ -1,0 +1,31 @@
+/*
+ * The few rules the orb needs in the PAGE itself (not in its own layer): they style the page's
+ * controls while the orb works on them. Every selector is keyed on an attribute only the orb sets
+ * (data-orb-hover, data-orb-pressed, data-orb-caret), so nothing changes on a page until the orb
+ * acts. Colours are literal (with an --orb-accent override) because the page has none of the orb's
+ * tokens. Inside an app this file is imported beside orb.css; on any website mountOrb() injects it.
+ */
+
+/* The orb is the caret now: the field's own one steps aside (text boxes, CodeMirror's drawn cursor,
+   xterm's block). */
+:root[data-orb-caret] :is(input, textarea, [contenteditable='true'], [contenteditable='']):focus { caret-color: transparent !important; }
+:root[data-orb-caret] .cm-editor.cm-focused .cm-cursorLayer { visibility: hidden; }
+:root[data-orb-caret] .xterm.focus .xterm-rows .xterm-cursor {
+  background-color: transparent !important;
+  color: inherit !important;
+  outline: none !important;
+  box-shadow: none !important;
+  animation: none !important;
+}
+
+/* The orb as a touch cursor: what it passes over lights up (the outline follows each control's own
+   corners); set down on it, it is pressed. */
+[data-orb-hover] {
+  outline: 2px solid color-mix(in srgb, var(--orb-accent, #6c7cff) 60%, transparent) !important;
+  outline-offset: 3px !important;
+  transition: outline-offset 0.18s cubic-bezier(0.22, 1, 0.36, 1);
+}
+[data-orb-pressed] { scale: 0.96; transition: scale 0.12s ease-out; }
+@media (prefers-reduced-motion: reduce) {
+  [data-orb-hover], [data-orb-pressed] { transition: none; scale: none; }
+}

@@ -1,0 +1,15 @@
+/* A plain little bookshop for trying the orb on (and for the end-to-end tests). Deliberately ordinary
+   website CSS with its own --accent and .btn, to prove the orb's styles and the page's never mix. */
+:root { --accent: #c2410c; --text: #1c1917; font-family: Georgia, serif; color: var(--text); background: #fafaf9; }
+body { max-width: 720px; margin: 0 auto; padding: 24px 16px 160px; }
+h1 { font-size: 34px; margin: 0 0 4px; }
+.lede { color: #57534e; margin: 0 0 24px; }
+nav a { margin-right: 14px; color: var(--accent); }
+form { display: flex; gap: 8px; margin: 18px 0; flex-wrap: wrap; }
+input, select, textarea { font: inherit; padding: 8px 10px; border: 1px solid #a8a29e; border-radius: 4px; }
+.btn { font: inherit; padding: 8px 16px; border-radius: 4px; border: 0; background: var(--accent); color: white; cursor: pointer; }
+.btn.secondary { background: #e7e5e4; color: var(--text); }
+ul.books { list-style: none; padding: 0; }
+ul.books li { padding: 12px 0; border-bottom: 1px solid #e7e5e4; }
+.status { padding: 10px 12px; background: #ecfccb; border-radius: 4px; }
+.tall { height: 1400px; }
