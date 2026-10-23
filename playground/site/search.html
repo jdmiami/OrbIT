@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Search · Harbour Books</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="books.js"></script>
+</head>
+<body>
+  <p><a href="index.html">← Harbour Books</a></p>
+  <h1 id="heading">Books</h1>
+  <ul class="books" id="list"></ul>
+  <script>
+    const q = param('q').toLowerCase();
+    document.getElementById('heading').textContent = q ? `Books matching “${q}”` : 'All books';
+    const hits = BOOKS.filter((b) => !q || b.genre === q || b.title.toLowerCase().includes(q) || b.author.toLowerCase().includes(q));
+    document.getElementById('list').innerHTML = hits.length
+      ? hits.map((b) => `<li><a href="item.html?id=${b.id}">${b.title}</a> by ${b.author}, £${b.price}</li>`).join('')
+      : '<li>No books found.</li>';
+  </script>
+</body>
+</html>

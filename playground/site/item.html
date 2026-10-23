@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Book · Harbour Books</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="books.js"></script>
+</head>
+<body>
+  <p><a href="index.html">← Harbour Books</a></p>
+  <h1 id="title"></h1>
+  <p id="by" class="lede"></p>
+  <form id="buy" onsubmit="event.preventDefault()">
+    <label>Format
+      <select id="format" aria-label="Format">
+        <option>Paperback</option>
+        <option>Hardback</option>
+        <option>Ebook</option>
+      </select>
+    </label>
+    <button class="btn secondary" type="button" id="add">Add to basket</button>
+    <button class="btn" type="button" id="buynow">Buy now</button>
+  </form>
+  <p id="basket" class="status" hidden></p>
+  <script>
+    const book = BOOKS.find((b) => b.id === param('id')) ?? BOOKS[0];
+    document.title = `${book.title} · Harbour Books`;
+    document.getElementById('title').textContent = book.title;
+    document.getElementById('by').textContent = `by ${book.author}, £${book.price}`;
+    const say = (t) => { const p = document.getElementById('basket'); p.hidden = false; p.textContent = t; };
+    document.getElementById('add').onclick = () => say(`Added the ${document.getElementById('format').value.toLowerCase()} to your basket.`);
+    document.getElementById('buynow').onclick = () => say(`Order placed: ${book.title} (${document.getElementById('format').value}).`);
+  </script>
+</body>
+</html>

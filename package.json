@@ -1,0 +1,33 @@
+{
+  "name": "orbit-orb",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "The Orb: a physics-driven companion that navigates any screen with you, or for you. The orb package, the pilot, and the Orb Browser.",
+  "main": "dist/browser/main.cjs",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "typecheck": "tsc --noEmit -p .",
+    "test": "vitest run",
+    "e2e": "npm run build && playwright test",
+    "browser": "npm run build && electron .",
+    "check": "npm run typecheck && npm test && npm run e2e"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^1.2.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@fontsource-variable/fraunces": "^5.3.0",
+    "@fontsource-variable/inter": "^5.3.0",
+    "@playwright/test": "1.63.0",
+    "@types/node": "^22.10.0",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "electron": "^45.0.0",
+    "esbuild": "^0.28.2",
+    "typescript": "^5.9.3",
+    "vitest": "^5.0.5"
+  }
+}

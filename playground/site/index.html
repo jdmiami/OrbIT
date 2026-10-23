@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Harbour Books</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <h1>Harbour Books</h1>
+  <p class="lede">A small shop for travel writing and quiet novels.</p>
+  <nav><a href="search.html?q=travel">Travel</a><a href="search.html?q=fiction">Fiction</a></nav>
+  <form action="search.html" method="get" role="search">
+    <input name="q" type="search" placeholder="Search books" aria-label="Search books" />
+    <button class="btn" type="submit">Search</button>
+  </form>
+  <h2>Newsletter</h2>
+  <form id="news" onsubmit="event.preventDefault(); document.getElementById('news-done').hidden = false;">
+    <input id="email" type="email" placeholder="Your email" aria-label="Your email" />
+    <input id="pw" type="password" placeholder="Password" aria-label="Password" />
+    <button class="btn secondary" type="submit">Subscribe</button>
+  </form>
+  <p id="news-done" class="status" hidden>Thanks, you are on the list.</p>
+  <p>Opening hours: every day, 9 to 6. The shop is by the harbour, next to the ferry.</p>
+  <div class="tall" aria-hidden="true"></div>
+  <p id="footer">You reached the bottom of the page. <a href="search.html?q=">All books</a></p>
+</body>
+</html>
